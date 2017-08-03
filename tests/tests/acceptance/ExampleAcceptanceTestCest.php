@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Example acceptance test cest.
+ */
+
 use Step\Acceptance\NodeSteps;
 
-class ExampleAccTestCest {
+/**
+ * Class ExampleAcceptanceTestCest
+ */
+class ExampleAcceptanceTestCest {
+
   /**
    * Node type.
    *
@@ -30,7 +39,8 @@ class ExampleAccTestCest {
    * @param \Step\Acceptance\NodeSteps $N
    */
   public function nodeCreateTest(AcceptanceTester $I, NodeSteps $N) {
-    $I->wantToTest('Node create.');
+    $I->wantTo("Create node of type: {$this->node_type}.");
+
     $node_values = array(
       'title' => 'Acceptance - create node test - ' . date('d.m.Y H:i:s'),
       'body' => 'test page body',

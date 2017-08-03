@@ -18,6 +18,8 @@ modules:
         - WebDriver:
              host: selenium
              url: http://web
+             auth_user: 'user'
+             auth_pass: 'pass'
              browser: chrome
              curl:
                  CURLOPT_TIMEOUT: 1200

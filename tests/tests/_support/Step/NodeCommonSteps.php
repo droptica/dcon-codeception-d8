@@ -7,14 +7,26 @@ use Drupal\Pages\NodePage;
 use Drupal\Pages\Page;
 use Codeception\Module\DrupalTestUser;
 
+/**
+ * Class NodeCommonSteps
+ * @package Step
+ */
 trait NodeCommonSteps {
+
   use UserCommonSteps;
 
   /**
+   * Create node as test user.
+   *
    * @param $username
+   *   Test username.
    * @param $content_type
+   *   Content type.
    * @param $fields_config
+   *   Field values.
+   *
    * @return int|null
+   *   Node ID or NULL.
    */
   public function createNewNodeAsUser($username, $content_type, $fields_config) {
     /** @var \AcceptanceTester $I */
@@ -44,7 +56,10 @@ trait NodeCommonSteps {
   }
 
   /**
+   * Grab Node ID.
+   *
    * @return null
+   *   Node ID or NULL.
    */
   public function grabNodeNid() {
     /** @var \AcceptanceTester $I */
@@ -61,10 +76,48 @@ trait NodeCommonSteps {
   }
 
   /**
+   * Delete node as test user.
+   *
+   * @param $username
+   *   Test username.
+   * @param $nid
+   *   ID of node to delete.
+   *
+   * @return int
+   *   ID of deleted node.
+   */
+  public function deleteNodeAsUser($username, $nid) {
+    /** @var \AcceptanceTester $I */
+    $I = $this;
+
+    // The same value in different variable to see functions from trait UserCommonSteps.
+    /** @var UserCommonSteps $U */
+    $U = $this;
+
+    // login as user
+    /** @var DrupalTestUser $user */
+    $user = $I->getTestUserByName($username);
+    $U->login($user->name, $user->pass);
+
+    $I->deleteNodeFromStorage($nid);
+
+    // delete node
+    $I->amOnPage(NodePage::route($nid, 'edit'));
+
+    $I->click('#edit-delete');
+    $I->see('Are you sure you want to delete');
+
+    // logout
+    $U->logout();
+
+    return $nid;
+  }
+
+  /**
    * Node loads.
    *
    * @param $nid
-   * @return mixed
+   *   ID of node to check.
    */
   public function seeNodePage($nid) {
     /** @var \AcceptanceTester $I */
@@ -80,7 +133,7 @@ trait NodeCommonSteps {
    * Node access denied.
    *
    * @param $nid
-   * @return mixed
+   *   ID of node to check.
    */
   public function cantSeeNodePage($nid) {
     if($nid) {

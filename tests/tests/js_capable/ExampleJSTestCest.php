@@ -1,9 +1,17 @@
 <?php
 
-use Step\JSCapable\NodeSteps;
-use \Facebook\WebDriver\Remote\RemoteWebDriver as WebDriver;
+/**
+ * @file
+ * Example JS capable test cest.
+ */
 
+use Step\JSCapable\NodeSteps;
+
+/**
+ * Class ExampleJSTestCest
+ */
 class ExampleJSTestCest {
+
   /**
    * Node type.
    *
@@ -17,11 +25,7 @@ class ExampleJSTestCest {
   }
 
   public function _before(JSCapableTester $I) {
-    $I->executeInSelenium(function (WebDriver $webdriver) use (&$curr_window) {
-      $webdriver->manage()->timeouts()->pageLoadTimeout(1200);
-      $webdriver->manage()->timeouts()->setScriptTimeout(1200);
-      $webdriver->get('http://drop:drop@web');
-    });
+    $I->webDriverHttpAuthentication($I);
   }
 
   public function _after(JSCapableTester $I) {
@@ -36,7 +40,8 @@ class ExampleJSTestCest {
    * @param \Step\JSCapable\NodeSteps $N
    */
   public function nodeCreateTest(JSCapableTester $I, NodeSteps $N) {
-    $I->wantToTest('Node create.');
+    $I->wantTo("Create node of type: {$this->node_type}.");
+
     $node_values = array(
       'title' => 'JSCapable - create node test - ' . date('d.m.Y H:i:s'),
       'body' => 'test page body',

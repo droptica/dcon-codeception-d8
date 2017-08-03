@@ -10,11 +10,14 @@ use Drupal\Pages\HomePage;
  * @package Step
  */
 trait UserCommonSteps {
+
   /**
    * Login user.
    *
    * @param string $username
+   *   Username.
    * @param string $password
+   *   Password.
    */
   public function login($username = 'admin', $password = 'admin')
   {
