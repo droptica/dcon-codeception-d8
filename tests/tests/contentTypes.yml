@@ -1,0 +1,308 @@
+ContentTypes:
+    article:
+        humanName: Article
+        machineName: article
+        fields:
+            title:
+                machineName: title
+                label: Title
+                type: string
+                widget: string_textfield
+            body:
+                machineName: body
+                label: Body
+                type: text_with_summary
+                widget: text_textarea_with_summary
+                required: false
+                cardinality: 1
+            comment:
+                machineName: comment
+                label: Comments
+                type: comment
+                widget: comment_default
+                required: true
+                cardinality: 1
+            field_image:
+                machineName: field_image
+                label: Image
+                type: image
+                widget: image_image
+                required: false
+                cardinality: 1
+            field_tags:
+                machineName: field_tags
+                label: Tags
+                type: entity_reference
+                widget: entity_reference_autocomplete_tags
+                required: false
+                cardinality: -1
+        submit: '#edit-actions .publish .form-submit'
+    page:
+        humanName: 'Basic page'
+        machineName: page
+        fields:
+            title:
+                machineName: title
+                label: Title
+                type: string
+                widget: string_textfield
+            body:
+                machineName: body
+                label: Body
+                type: text_with_summary
+                widget: text_textarea_with_summary
+                required: false
+                cardinality: 1
+            field_boolean_field:
+                machineName: field_boolean_field
+                label: boolean_field
+                type: boolean
+                widget: boolean_checkbox
+                required: false
+                cardinality: 1
+            field_boolean_field_check:
+                machineName: field_boolean_field_check
+                label: boolean_field_check
+                type: boolean
+                widget: options_buttons
+                required: false
+                cardinality: 1
+            field_content_reference:
+                machineName: field_content_reference
+                label: 'Content reference'
+                type: entity_reference
+                widget: entity_reference_autocomplete
+                required: false
+                cardinality: 1
+            field_content_reference_multi:
+                machineName: field_content_reference_multi
+                label: 'Content reference multi'
+                type: entity_reference
+                widget: entity_reference_autocomplete
+                required: false
+                cardinality: -1
+            field_date_field:
+                machineName: field_date_field
+                label: date_field
+                type: datetime
+                widget: datetime_default
+                required: false
+                cardinality: 1
+            field_date_select_field:
+                machineName: field_date_select_field
+                label: date_select_field
+                type: datetime
+                widget: datetime_datelist
+                required: false
+                cardinality: 1
+            field_date_time_field:
+                machineName: field_date_time_field
+                label: date_time-field
+                type: datetime
+                widget: datetime_default
+                required: false
+                cardinality: 1
+            field_date_time_select_field:
+                machineName: field_date_time_select_field
+                label: date_time_select_field
+                type: datetime
+                widget: datetime_datelist
+                required: false
+                cardinality: 1
+            field_disqus_comment:
+                machineName: field_disqus_comment
+                label: disqus_comment
+                type: disqus_comment
+                widget: disqus_comment
+                required: false
+                cardinality: 1
+            field_email_field:
+                machineName: field_email_field
+                label: email_field
+                type: email
+                widget: email_default
+                required: false
+                cardinality: 1
+            field_file_reference:
+                machineName: field_file_reference
+                label: 'File reference'
+                type: file
+                widget: file_generic
+                required: false
+                cardinality: 1
+            field_image_reference:
+                machineName: field_image_reference
+                label: 'Image reference'
+                type: image
+                widget: image_image
+                required: false
+                cardinality: 1
+            field_link_field:
+                machineName: field_link_field
+                label: link_field
+                type: link
+                widget: link_default
+                required: false
+                cardinality: 1
+            field_list_integer:
+                machineName: field_list_integer
+                label: list_integer
+                type: list_integer
+                widget: options_select
+                required: false
+                cardinality: -1
+            field_list_text:
+                machineName: field_list_text
+                label: list_text
+                type: list_string
+                widget: options_select
+                required: false
+                cardinality: 1
+            field_list_text_checkboxes:
+                machineName: field_list_text_checkboxes
+                label: list_text_checkboxes
+                type: list_string
+                widget: options_buttons
+                required: false
+                cardinality: -1
+            field_list_text_radio:
+                machineName: field_list_text_radio
+                label: list_text_radio
+                type: list_string
+                widget: options_buttons
+                required: false
+                cardinality: 1
+            field_list_text_radio_2:
+                machineName: field_list_text_radio_2
+                label: list_text_radio_2
+                type: list_string
+                widget: options_buttons
+                required: false
+                cardinality: 2
+            field_meta_tags:
+                machineName: field_meta_tags
+                label: meta_tags
+                type: metatag
+                widget: metatag_firehose
+                required: false
+                cardinality: 1
+            field_num:
+                machineName: field_num
+                label: number_integer
+                type: integer
+                widget: number
+                required: false
+                cardinality: 1
+            field_number_decimal:
+                machineName: field_number_decimal
+                label: number_decimal
+                type: decimal
+                widget: number
+                required: false
+                cardinality: 1
+            field_number_float:
+                machineName: field_number_float
+                label: number_float
+                type: float
+                widget: number
+                required: false
+                cardinality: 1
+            field_term_reference:
+                machineName: field_term_reference
+                label: 'Term reference'
+                type: entity_reference
+                widget: entity_reference_autocomplete_tags
+                required: false
+                cardinality: 1
+            field_term_reference_multi_selec:
+                machineName: field_term_reference_multi_selec
+                label: 'Term reference multi select'
+                type: entity_reference
+                widget: options_select
+                required: false
+                cardinality: -1
+            field_term_reference_select_list:
+                machineName: field_term_reference_select_list
+                label: 'Term reference select list'
+                type: entity_reference
+                widget: options_select
+                required: false
+                cardinality: 1
+            field_term_reference_tags_multi:
+                machineName: field_term_reference_tags_multi
+                label: 'Term reference tags multi'
+                type: entity_reference
+                widget: entity_reference_autocomplete_tags
+                required: false
+                cardinality: -1
+            field_text_formatted:
+                machineName: field_text_formatted
+                label: text_formatted
+                type: text
+                widget: text_textfield
+                required: false
+                cardinality: 1
+            field_text_formatted_long:
+                machineName: field_text_formatted_long
+                label: text_formatted_long
+                type: text_long
+                widget: text_textarea
+                required: false
+                cardinality: 1
+            field_text_formatted_long_sum:
+                machineName: field_text_formatted_long_sum
+                label: text_formatted_long_sum
+                type: text_with_summary
+                widget: text_textarea_with_summary
+                required: false
+                cardinality: 1
+            field_text_plain:
+                machineName: field_text_plain
+                label: text_plain
+                type: string
+                widget: string_textfield
+                required: false
+                cardinality: 1
+            field_text_plain_long:
+                machineName: field_text_plain_long
+                label: text_plain_long
+                type: string_long
+                widget: string_textarea
+                required: false
+                cardinality: 1
+            field_timestamp_field:
+                machineName: field_timestamp_field
+                label: timestamp_field
+                type: timestamp
+                widget: datetime_timestamp
+                required: false
+                cardinality: 1
+            field_user_reference:
+                machineName: field_user_reference
+                label: 'User reference'
+                type: entity_reference
+                widget: options_buttons
+                required: false
+                cardinality: 1
+            field_user_reference_multi:
+                machineName: field_user_reference_multi
+                label: 'User reference multi'
+                type: entity_reference
+                widget: options_buttons
+                required: false
+                cardinality: -1
+            field_user_reference_multi_sel:
+                machineName: field_user_reference_multi_sel
+                label: 'User reference multi sel'
+                type: entity_reference
+                widget: options_select
+                required: false
+                cardinality: -1
+            field_user_reference_sel:
+                machineName: field_user_reference_sel
+                label: 'User reference sel'
+                type: entity_reference
+                widget: options_select
+                required: false
+                cardinality: 1
+        submit: '#edit-actions .publish .form-submit'
