@@ -1,0 +1,11 @@
+.env
+.idea
+*.pyc
+
+app_data/*
+!app_data/README.txt
+
+app_files/*
+!app_files/README.txt
+
+docker/custom_images/hashes.yml
