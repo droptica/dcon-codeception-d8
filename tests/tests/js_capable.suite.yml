@@ -20,6 +20,7 @@ modules:
              url: http://web
              auth_user: 'user'
              auth_pass: 'pass'
+             auth_timeout: 1200
              browser: chrome
              curl:
                  CURLOPT_TIMEOUT: 1200
